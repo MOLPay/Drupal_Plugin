@@ -400,6 +400,7 @@
      */
     function commerce_molpay_redirect_form_validate($order, $payment_method) {
 		
+
 		if(!class_exists('molpay'))
 		{
 			$path = libraries_get_path('molpay');
@@ -412,21 +413,27 @@
         // Receive response from molpay server.
         $molpay = new molpay(variable_get('commerce_molpay_merchant_ID'));
         $response = $molpay->getResponse();
-
+        $molpay->ipn();
         drupal_session_start();
         $molpay_session_temp = isset($_SESSION['commerce_molpay']['orders'][$order->order_id]) ? unserialize($_SESSION['commerce_molpay']['orders'][$order->order_id]) : array();
         unset($_SESSION['commerce_molpay']['orders'][$order->order_id]);
-
         // Log message to watchdog.
-        if (!$response['status']) {
-            watchdog('commerce_molpay', 'Transaction was not successful for Order ID !order_id with the error:- @err_msg', array('!order_id' => $order->order_id, '@err_msg' => $response['message']), WATCHDOG_WARNING);
-            return FALSE;
-        } else {
+        if ($response['status'] == '00') {
             watchdog('commerce_molpay', 'Transaction was successful for Order ID !order_id.', array('!order_id' => $order->order_id));
 
             commerce_molpay_transaction($payment_method, $order, $response['data'] + $molpay_session_temp);
+        } elseif ($response['status'] == '11') {
+          watchdog('commerce_molpay', 'Transaction was not successful for Order ID !order_id with the error:- @err_msg', array('!order_id' => $order->order_id, '@err_msg' => 'Trasaction Failed!'), WATCHDOG_WARNING);
+            return FALSE;
+            
+        } elseif ($response['status'] == '22') {
+          watchdog('commerce_molpay', 'Transaction was pending for Order ID !order_id with the error:- @err_msg', array('!order_id' => $order->order_id, '@err_msg' => 'Trasaction Pending!'), WATCHDOG_WARNING);
+            return FALSE;
+            
+        } else {
+          watchdog('commerce_molpay', 'Transaction was not successful for Order ID !order_id with the error:- @err_msg', array('!order_id' => $order->order_id, '@err_msg' => 'Trasaction Failed!'), WATCHDOG_WARNING);
+            return FALSE;
         }
-		$molpay->ipn();
         return TRUE;
     }
 
