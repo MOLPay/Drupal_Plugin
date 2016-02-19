@@ -565,13 +565,13 @@
 			db_update('commerce_molpay')
 			->fields
 			(
-				[
+				array(
 					'tranID' 	=> $tranID,
 					'appcode' 	=> $appcode,
 					'status' 	=> $status,
 					'paydate' 	=> $paydate,
 					'channel' 	=> $channel,
-				]
+				)
 			)
 			->condition('orderid', $orderid)
 			->execute();
@@ -581,9 +581,9 @@
 				db_update('commerce_order')
 				->fields
 				(
-					[
+					array(
 						'status' => 'completed'
-					]
+					)
 				)
 				->condition('order_id', $orderid)
 				->execute();
@@ -593,9 +593,9 @@
 				db_update('commerce_order')
 				->fields
 				(
-					[
+					array(
 						'status' => 'canceled'
-					]
+					)
 				)
 				->condition('order_id', $orderid)
 				->execute();
@@ -605,9 +605,9 @@
 				db_update('commerce_order')
 				->fields
 				(
-					[
+					array(
 						'status' => 'pending'
-					]
+					)
 				)
 				->condition('order_id', $orderid)
 				->execute();
