@@ -18,7 +18,7 @@ Installations
 ------------------------------------------------------
 
 - [Drupal version 7.x.x and above](https://github.com/MOLPay/Drupal_Plugin/wiki/Drupal-7.x.x-and-above)
-- [Drupal version 8.6.x and above](https://github.com/MOLPay/Drupal_Plugin/wiki/Drupal-8.6.x-and-above)
+- [Drupal version 8.x and above](https://github.com/MOLPay/Drupal_Plugin/wiki/Drupal-8.x-and-above)
 
 
 Contribution
