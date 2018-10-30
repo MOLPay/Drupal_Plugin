@@ -14,24 +14,11 @@ Use at your own risk. Please backup any critical data before proceeding. For any
 assistance, please email support@molpay.com
 
 
-Installations for Drupal version 7.x.x and above
+Installations
 ------------------------------------------------------
 
-- Download this plugin, Extract/Unzip the files. 
-
-- Upload or copy those file and folder into your Drupal root folder
-
-- (Skip this if your Drupal is not hosted in UNIX environment). 
-Please ensure the file permission is correct. It's recommended to CHMOD to 777
-
-- Login to your Drupal Admin, then go to Modules and activate the `Commerce MOLPay` plugin.
-
-- Within the Drupal Admin, go to `Store` >> `Configure Store` , then click on the `MOLPay Settings` and fill out the details accordingly:
- 
-    1. Merchant ID: Provide your MOLPay Merchant ID for this field.
-    2. Merchant VKey: Login to MOLPay merchant admin site, and refer to your profile to
-
-- Save Configuration. You are Done!
+- [Drupal version 7.x.x and above](https://github.com/MOLPay/Drupal_Plugin/wiki/Drupal-7.x.x-and-above)
+- [Drupal version 8.6.x and above](https://github.com/MOLPay/Drupal_Plugin/wiki/Drupal-8.6.x-and-above)
 
 
 Contribution
