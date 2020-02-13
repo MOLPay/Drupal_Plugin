@@ -1,7 +1,8 @@
-<img src="https://user-images.githubusercontent.com/38641542/74404895-b21b8480-4e66-11ea-8eb0-96c1cb7acdf6.jpg">
 
 Razer Merchant Services Drupal Plugin
 ==================
+
+<img src="https://user-images.githubusercontent.com/38641542/74404895-b21b8480-4e66-11ea-8eb0-96c1cb7acdf6.jpg">
 
 Razer Merchant Services Plugin for Drupal Shopping Cart developed by Razer Merchant Services R&D team.
 
